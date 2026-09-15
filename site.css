@@ -1,0 +1,31 @@
+/* Overrides layered on top of the original compiled stylesheet. */
+
+/* Hero heading: 10px smaller at every viewport, and kept readable on phones. */
+.hero h1 {
+  font-size: clamp(32px, calc(5.5vw - 10px), 66px);
+  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+@media (max-width: 800px) {
+  .hero h1 {
+    font-size: clamp(29px, calc(10vw - 10px), 51px);
+    line-height: 1.08;
+  }
+}
+@media (max-width: 440px) {
+  .hero h1 {
+    font-size: 26px;
+  }
+}
+
+/* Footer logo: the compiled CSS pairs white text with an invert() filter,
+   which rendered it black. Dropping the filter keeps it white. */
+.brand.invert {
+  color: #fff;
+  filter: none;
+}
+
+/* The checkmark is present in the markup and revealed once an item is checked. */
+.checklist button:not(.checked) .check-icon {
+  visibility: hidden;
+}
